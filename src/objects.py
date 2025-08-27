@@ -4,19 +4,17 @@ from typing import List, Optional, TypedDict, Tuple
 
 @dataclass
 class Business:
-    gmap_id: Optional[str]
-    name: Optional[str]
-    # address: Optional[str]
-    # location: Optional[Tuple[float,float]]  # (latitude, longitude)
-    # description: Optional[str]
-    # avg_rating: Optional[float]   
+    gmap_id: Optional[str] = None
+    name: Optional[str] = None
+    address: Optional[str] = None
+    description: Optional[str] = None
+    avg_rating: Optional[float] = None  
     # no_of_reviews: Optional[int]
     # services: Optional[List[str]]
     # category: Optional[List[str]]
 
     def __repr__(self):
-        return f"Business(id={self.gmap_id}, name={self.name})"
-
+        return f"Business(id={self.gmap_id}, name={self.name}, address={self.address}, description={self.description}, avg_rating={self.avg_rating})"
 @dataclass
 class User:
     user_id: Optional[int]
@@ -50,9 +48,14 @@ class Review:
     text: str
     language: str
     rating: Optional[int]
-    length: int
     contains_images: bool
     contains_urls: bool
     embeddings: Optional[List[float]] = None
+
+    @property
+    def length(self) -> int:
+        return len(self.text.split())
+    
+
 
 
