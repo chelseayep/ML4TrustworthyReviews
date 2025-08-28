@@ -1,7 +1,6 @@
 from dataclasses import dataclass
 from typing import List, Optional, TypedDict, Tuple
 
-
 @dataclass
 class Business:
     gmap_id: Optional[str] = None
@@ -9,9 +8,6 @@ class Business:
     address: Optional[str] = None
     description: Optional[str] = None
     avg_rating: Optional[float] = None  
-    # no_of_reviews: Optional[int]
-    # services: Optional[List[str]]
-    # category: Optional[List[str]]
 
     def __repr__(self):
         return f"Business(id={self.gmap_id}, name={self.name}, address={self.address}, description={self.description}, avg_rating={self.avg_rating})"
@@ -19,10 +15,6 @@ class Business:
 class User:
     user_id: Optional[int]
     name: Optional[str]
-    # location: Optional[str]
-    # reviews_given: Optional[int]
-    # avg_rating: Optional[float]
-    # credibility_score: float
 
     def __repr__(self):
         return f"User(id={self.user_id}, name={self.name})"
@@ -35,27 +27,20 @@ class InputData(TypedDict):
     user: Optional[User]
     business: Optional[Business]
 
+    def __repr__(self):
+        return f"InputData(text={self.text}, rating={self.rating}, images={self.images}, time={self.time}, user={self.user}, business={self.business})"
+
 class OutputData(TypedDict):
-    review_quaity: int
-    reasoning: str
-    confidence: int
-    spam: bool
-    irrelevant: bool
-    rant_without_visit: bool
+    review_quaity = ['low', 'medium', 'high'] #based on length, reveiw and rating coherence, informative
+    spam: bool #includes advertisments, promotional content
+    relevance: bool # on-topic , relative to business description (if available)
+    credible: bool # shows genuine user experience, not bot like
+
 
 @dataclass
 class Review:
-    text: str
-    language: str
-    rating: Optional[int]
-    contains_images: bool
-    contains_urls: bool
-    embeddings: Optional[List[float]] = None
+    input: InputData
+    evaluation: Optional[OutputData] = None
 
-    @property
-    def length(self) -> int:
-        return len(self.text.split())
-    
-
-
-
+    def __repr__(self):
+        return f"Review(text={self.input.get('text', '')}, rating={self.input.get('rating', None)}, business_description={self.input.get('business').description if self.input.get('business') and self.input.get('business').description else ''})"
