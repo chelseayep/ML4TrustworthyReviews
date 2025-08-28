@@ -43,4 +43,5 @@ class Review:
     evaluation: Optional[OutputData] = None
 
     def __repr__(self):
-        return f"Review(text={self.input.get('text', '')}, rating={self.input.get('rating', None)}, business_description={self.input.get('business').description if self.input.get('business') and self.input.get('business').description else ''})"
+        business_desc= self.input['business'].description if self.input['business'] and self.input['business'].description else ''
+        return f"Review(text={self.input.get('text', '')}, rating={self.input.get('rating', None)}, business_description={business_desc})"

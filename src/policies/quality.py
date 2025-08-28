@@ -53,7 +53,6 @@ class CompositePolicy:
 
     def evaluate(self, review: Review) -> EvaluationResult:
         response= self.model.generate_structured(self.prompt,review.__repr__(), schema=EvaluationResult)
-        print(f"response_type: f{type(response)}")
         return response
 
 
@@ -66,10 +65,10 @@ class PolicyEvaluator:
         
         is_ad = self.ad_policy.evaluate(review)
         composite_eval = self.eval_policy.evaluate(review)
-        review.evaluation = OutputData(review_quaity=composite_eval.quality,
+        review.evaluation = OutputData(review_quaity=composite_eval['quality'],
                                        spam=is_ad, 
-                                       relevance=(composite_eval.relevance=='relevant'), 
-                                       credible=(composite_eval.credibility=='credible')
+                                       relevance=(composite_eval['relevance']=='relevant'), 
+                                       credible=(composite_eval['credibility']=='credible')
             
         )
 
