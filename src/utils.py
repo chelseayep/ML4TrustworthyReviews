@@ -1,14 +1,17 @@
-import json
-import csv
+from objects import Review, InputData, OutputData, Business
 
-# Load your JSON file
-with open('../data/processed/test_set2.json', 'r') as f:
-    data = json.load(f)
 
-# If your JSON is a list of dicts:
-with open('../data/processed/test_set2.csv', 'w', newline='', encoding='utf-8') as f:
-    writer = csv.DictWriter(f, fieldnames=list(data[0].keys()) + ['annotation'])
-    writer.writeheader()
-    for row in data:
-        row['annotation'] = ''  # Add empty annotation column
-        writer.writerow(row)
+def convert_dict_to_review(data: dict) -> Review:
+    """
+    Convert a dictionary to a Review object.
+    """
+    input_data = InputData(
+        text=data.get('text'),
+        rating=data.get('rating'),
+        images=data.get('images'),
+        time=data.get('time'),
+        user=data.get('user'),
+        business=Business(**data['business']) if data.get('business') else None
+    )
+
+    return Review(input=input_data)

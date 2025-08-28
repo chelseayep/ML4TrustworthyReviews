@@ -37,11 +37,21 @@ class OutputData(TypedDict):
     credible: bool # shows genuine user experience, not bot like
 
 
+class GroundTruth(TypedDict):
+    spam: bool
+    relevance: bool
+    credible: bool
+    _sentiment: int
+    _informative: bool
+    
 @dataclass
 class Review:
+    id: int
     input: InputData
     evaluation: Optional[OutputData] = None
+    truth: GroundTruth = None
 
     def __repr__(self):
         business_desc= self.input['business'].description if self.input['business'] and self.input['business'].description else ''
         return f"Review(text={self.input.get('text', '')}, rating={self.input.get('rating', None)}, business_description={business_desc})"
+    
