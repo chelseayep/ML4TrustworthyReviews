@@ -4,6 +4,7 @@ from pydantic import BaseModel
 from typing import List, Optional
 from dotenv import load_dotenv
 import os
+import json
 from huggingface_hub import InferenceClient
 
 load_dotenv()
@@ -48,7 +49,8 @@ class Model:
             )
 
 
-        structured_data = response.choices[0].message.content
+        data = response.choices[0].message.content
+        structured_data = json.loads(data)  # Validate JSON format
         return structured_data
 
 

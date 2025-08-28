@@ -1,9 +1,9 @@
-from src.objects import Review, Business, OutputData
-from src.llm import Model
+from objects import Review, Business, OutputData, InputData
+from llm import Model
 import re
 from pydantic import BaseModel
 from typing import Literal
-impor
+
 
 class AdvertisementPolicy:
     def evaluate(self, review: Review) -> bool:
@@ -11,10 +11,11 @@ class AdvertisementPolicy:
         Evaluate if the review is an advertisement based on presence of URLs and promotional keywords.
         """
         ad_keywords = ['buy', 'discount code', 'offer', 'sale', 'check out', 'subscribe', 'free', 'click here']
-        keyword_count = sum(1 for kw in ad_keywords if kw in review.text.lower())
+        review_text= review.input['text'].lower()
+        keyword_count = sum(1 for kw in ad_keywords if kw in review_text)
 
         url_regex = r'(https?://\S+|www\.\S+)'
-        url_present = re.search(url_regex, review.text) is not None
+        url_present = re.search(url_regex, review_text) is not None
         
         is_ad = url_present or keyword_count > 0
        
@@ -52,6 +53,7 @@ class CompositePolicy:
 
     def evaluate(self, review: Review) -> EvaluationResult:
         response= self.model.generate_structured(self.prompt,review.__repr__(), schema=EvaluationResult)
+        print(f"response_type: f{type(response)}")
         return response
 
 
@@ -76,19 +78,19 @@ class PolicyEvaluator:
 
 
 
+policy=CompositePolicy()
+if __name__ == "__main__":
 
-# policy=CompositePolicy()
-# if __name__ == "__main__":
-
-#     review=Review(text= "This place was so peaceful and quiet....not many people out here so you feel the awesome alone in paradise feeling....the area is also full of great energy that has very mystical history surrounding the area.   It's near plain meeting house which has alot of folklore that surrounds the area",
-#        rating= 5,
-#         business= Business(
-#         gmap_id= "0x89e5ce1e71927ddb:0xc25de9369c417b1c",
-#         name= "Stepstone Falls",
-#         address= "Stepstone Falls, West Greenwich, RI 02817",
-#         description= "Set in a wooded area, this picturesque waterfall is a series of gentle cascades over broad ledges.",
-#         avg_rating= 4.6
-#         ))
+    review=Review(input=InputData(
+        text= "This place was so peaceful and quiet....not many people out here so you feel the awesome alone in paradise feeling....the area is also full of great energy that has very mystical history surrounding the area.   It's near plain meeting house which has alot of folklore that surrounds the area",
+       rating= 5,
+        business= Business(
+        gmap_id= "0x89e5ce1e71927ddb:0xc25de9369c417b1c",
+        name= "Stepstone Falls",
+        address= "Stepstone Falls, West Greenwich, RI 02817",
+        description= "Set in a wooded area, this picturesque waterfall is a series of gentle cascades over broad ledges.",
+        avg_rating= 4.6
+        )))
     
-#     result= policy.evaluate(review)
-#     print(result)
+    result= policy.evaluate(review)
+    print(result)
