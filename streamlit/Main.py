@@ -101,6 +101,7 @@ st.write(
     """
     Reviews are sourced from the Google Local Reviews dataset ([McAuley Lab, UCSD](https://mcauleylab.ucsd.edu/public_datasets/gdrive/googlelocal/)).
     A subset is randomly selected for evaluation, annotated, and processed for model input.
+    **Since the dataset was already clean and pre-filtered by Google’s system, it contained only one (or sometimes none) of each policy violation. To enable proper testing, an LLM (GPT-4) was used to randomly modify the reviews and generate around 5–15 examples of each violation type.**
     """
 )
 
