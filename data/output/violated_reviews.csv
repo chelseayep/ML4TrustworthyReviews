@@ -1,20 +1,20 @@
-text,rating,business_name,violations,ground_truth_violations
-Excellent customer service and great variety of products for your truck. They gave me a free soda to write this review!!!!,5,PSC Parts - Pascale Service Corporation,['not credible'],['not credible']
-Best place for your eyebrow threading. Check out this link for FREE COUPONS!!!!!,5,Royal Eyebrow Threading,"['spam', 'not relevant', 'not credible']","['spam', 'not relevant', 'not credible']"
-"Great place for cheap gas, very easy access to get in and out, this is a great place to fill up and go about your way. They have good service and are very helpful.",5,Citgo,['not relevant'],[]
-I have never been but will check it out next week,5,Hope Memorial Field,['not credible'],['not credible']
-I like eating pizza!!!!!!!,4,Walmart,['not relevant'],['not relevant']
-This is the best place in Rhode Island.,5,Greenleaf Compassionate Care Center,['not credible'],['not credible']
-"I don't know what is going on there. But there's tents and a barn, horses, and people playing instruments. Looks like they got the idea on life. Next time I am dropping out disconnecting and joining!!!!",5,Blackstone River Watershed Council,['not credible'],['not credible']
-Nice little private club for sports & drinks. Click on this link to get a free Amazon Coupon!!: https://www.amazon.sg/?&tag=googlepcabksg-22&ref=pd_,4,Club Lafayette Inc,"['spam', 'not relevant', 'not credible']","['spam', 'not relevant', 'not credible']"
-"It's dominios, what more can you say. ",4,Domino's Pizza,['not credible'],['not credible']
-"Friendly and listen to you, great work by all the ladies there!",5,Fantastic Sams Cut & Color,['not relevant'],[]
-Heard from my friends that it was expensive and took a long time.,5,Effie Filippou's Twisted Pizza Order Online,['not credible'],['not credible']
-"They have the largest beer selection of anywhere in Rhode Island, or so I've been told.",5,Doherty's East Ave Irish Pub,['not credible'],['not credible']
-I love my new car  lol the service is very good,5,Dunkin',['not relevant'],['not relevant']
-"Food was VERY good, probably the best my husband and I ever had. The waiter was ABSOLUTLEY HORRIBLE!!! HE took our drink order very rudely asking what we wanted-- acting like he was doing us a favor. We advised him it was our first time there and if he had any recommendations, then he basically walked away leaving us to ""guess"" what we wanted for dinner. Every time we tried to talk to him he answered with one word sentences like he was too busy. Although he had quite a long conversation with the patrons at the tables on either side of us, he acted like we didnt exist. The bus boy delivered us our meal! At that point we finished up and took our food to go. I never saw a smile on the waiters face until he dropped off the check. (Probably because he wanted the tip) we assumed from previous comments on this site that unless you are a regular, you are treated badly from the staff.  WE WOULD NEVER, EVER RECOMMEND THIS PLACE OR GO THERE AGAIN! too bad since the food was so delicious",1,Antonio's Trattoria,['not credible'],[]
-FREE DISCOUNT CODE IN MY BIO!! CLICK HERE!!,4,Three Sisters,"['spam', 'not relevant', 'not credible']","['spam', 'not relevant', 'not credible']"
-Cookies & coffee ice cream is where it’s at!,4,Three Sisters,['not relevant'],[]
+text,rating,business_name,review_quality,violations,ground_truth_violations
+Excellent customer service and great variety of products for your truck. They gave me a free soda to write this review!!!!,5,PSC Parts - Pascale Service Corporation,low,['not credible'],['not credible']
+Best place for your eyebrow threading. Check out this link for FREE COUPONS!!!!!,5,Royal Eyebrow Threading,low,"['spam', 'not relevant', 'not credible']","['spam', 'not relevant', 'not credible']"
+"Great place for cheap gas, very easy access to get in and out, this is a great place to fill up and go about your way. They have good service and are very helpful.",5,Citgo,high,['not relevant'],[]
+I have never been but will check it out next week,5,Hope Memorial Field,low,['not credible'],['not credible']
+I like eating pizza!!!!!!!,4,Walmart,low,['not relevant'],['not relevant']
+This is the best place in Rhode Island.,5,Greenleaf Compassionate Care Center,low,['not credible'],['not credible']
+"I don't know what is going on there. But there's tents and a barn, horses, and people playing instruments. Looks like they got the idea on life. Next time I am dropping out disconnecting and joining!!!!",5,Blackstone River Watershed Council,low,['not credible'],['not credible']
+Nice little private club for sports & drinks. Click on this link to get a free Amazon Coupon!!: https://www.amazon.sg/?&tag=googlepcabksg-22&ref=pd_,4,Club Lafayette Inc,low,"['spam', 'not relevant', 'not credible']","['spam', 'not relevant', 'not credible']"
+"It's dominios, what more can you say. ",4,Domino's Pizza,low,['not credible'],['not credible']
+"Friendly and listen to you, great work by all the ladies there!",5,Fantastic Sams Cut & Color,low,['not relevant'],[]
+Heard from my friends that it was expensive and took a long time.,5,Effie Filippou's Twisted Pizza Order Online,low,['not credible'],['not credible']
+"They have the largest beer selection of anywhere in Rhode Island, or so I've been told.",5,Doherty's East Ave Irish Pub,low,['not credible'],['not credible']
+I love my new car  lol the service is very good,5,Dunkin',low,['not relevant'],['not relevant']
+"Food was VERY good, probably the best my husband and I ever had. The waiter was ABSOLUTLEY HORRIBLE!!! HE took our drink order very rudely asking what we wanted-- acting like he was doing us a favor. We advised him it was our first time there and if he had any recommendations, then he basically walked away leaving us to ""guess"" what we wanted for dinner. Every time we tried to talk to him he answered with one word sentences like he was too busy. Although he had quite a long conversation with the patrons at the tables on either side of us, he acted like we didnt exist. The bus boy delivered us our meal! At that point we finished up and took our food to go. I never saw a smile on the waiters face until he dropped off the check. (Probably because he wanted the tip) we assumed from previous comments on this site that unless you are a regular, you are treated badly from the staff.  WE WOULD NEVER, EVER RECOMMEND THIS PLACE OR GO THERE AGAIN! too bad since the food was so delicious",1,Antonio's Trattoria,low,['not credible'],[]
+FREE DISCOUNT CODE IN MY BIO!! CLICK HERE!!,4,Three Sisters,low,"['spam', 'not relevant', 'not credible']","['spam', 'not relevant', 'not credible']"
+Cookies & coffee ice cream is where it’s at!,4,Three Sisters,low,['not relevant'],[]
 "I received a gift card for $75. I looked at the menu saw they had a paint reconditioning service. Decided I would get this service.....   Let me add my paint is not bad at all. I’ve gotten compliments on how well my paint looks for the year of the car.
 Just from calling to make an appointment I wasn’t happy. Apparently when you get this service you have to get a wax coating done. That is an extra $49 dollar charge. I asked if I could do this on my own. Not allowed! So why not just make the service $125 which is came out to!? It’s the gimmick how they bring you in. Okay fine I’ll pay the extra. Upon calling and finding out about these extra charges I made an appointment for 12 o’clock. Arrived 5 minutes early. No parking no attendant/worker to be found. Finally I park near the vacuums then check in.
 Didn’t seem to care I had an appointment. Got the same speech I got on the phone “Typically takes 2-21/2 hours some times longer. Okay fine with me 3 hours or so. Nope!! After 4 hours I called and got “your detailer says it will be ready for 4:30” I arrive at 4:30 car is sitting outside looking good. No one around garage doors shut! I do a once around looks decent not going to complain. Yes they pulled some surfaces scratches out but that was about all.
@@ -23,27 +23,27 @@ Unfortunately it rained during the car show and in my travels. It’s now two da
 
 So my final say is if you are going to get a cut and buff service find a good auto body shop. It will cost you the same. Maybe a little more but it won’t turn out how this has.
 
-I will say after these issues. I did work with the manager and asst manager and got these resolved. so my review remains the same on the work. Customer satisfaction I will give 5 stars",2,ScrubaDub Car Wash,['not relevant'],[]
-If you want hibachi! This is the #1 place in Rhode island. It's a bit pricey but the food plate is massive and well worth it.,5,Shogun,['not relevant'],[]
-"Sat outside... Beautiful day.   Service is great, food fabulous.  Large portions.",5,Waterman Grille,['not relevant'],[]
-Great sushi options that are reasonably priced.,5,Haruki East,['not credible'],['not credible']
-This company is a F@&$ing joke,1,UPS Customer Center,"['not relevant', 'not credible']","['not relevant', 'not credible']"
-"Had a tasteless, blan, soggy chicken parm sandwich....",1,Johna's ITALIAN Restaurant,['not credible'],[]
-Hot weiners and coffee milk,2,Wein-O-Rama,['not relevant'],[]
-Great food and service in an atypical setting. FOLLOW ME FOR FREE TICKETS TO COACHELLA!!!!,5,Anthony's Seafood,"['spam', 'not relevant', 'not credible']","['spam', 'not relevant', 'not credible']"
-"Exellent service!! My waitress was very kind, and on top of everything. And the food was exactly as expected. Delicious!!!",5,Denny's,['not credible'],[]
-It's OK for shopping .,3,Lincoln Commons,['not credible'],[]
+I will say after these issues. I did work with the manager and asst manager and got these resolved. so my review remains the same on the work. Customer satisfaction I will give 5 stars",2,ScrubaDub Car Wash,low,['not relevant'],[]
+If you want hibachi! This is the #1 place in Rhode island. It's a bit pricey but the food plate is massive and well worth it.,5,Shogun,low,['not relevant'],[]
+"Sat outside... Beautiful day.   Service is great, food fabulous.  Large portions.",5,Waterman Grille,low,['not relevant'],[]
+Great sushi options that are reasonably priced.,5,Haruki East,low,['not credible'],['not credible']
+This company is a F@&$ing joke,1,UPS Customer Center,low,"['not relevant', 'not credible']","['not relevant', 'not credible']"
+"Had a tasteless, blan, soggy chicken parm sandwich....",1,Johna's ITALIAN Restaurant,low,['not credible'],[]
+Hot weiners and coffee milk,2,Wein-O-Rama,low,['not relevant'],[]
+Great food and service in an atypical setting. FOLLOW ME FOR FREE TICKETS TO COACHELLA!!!!,5,Anthony's Seafood,low,"['spam', 'not relevant', 'not credible']","['spam', 'not relevant', 'not credible']"
+"Exellent service!! My waitress was very kind, and on top of everything. And the food was exactly as expected. Delicious!!!",5,Denny's,high,['not credible'],[]
+It's OK for shopping .,3,Lincoln Commons,low,['not credible'],[]
 "(Translated by Google) I like
 
 (Original)
-Me gusta",5,PetSmart,['not relevant'],"['not relevant', 'not credible']"
-"Small but new, hope you like To smoke friggin cigarette smoking everywhere.  Needed a shower as soon as I got home!!",1,Tiverton Casino Hotel,['not credible'],[]
-Got what we needed for curtains and hardware. Great prices. No staff voluntarily came to offer guidance or advice. I really would not expect it there though.,3,"Curtain & Bath Outlet, Warwick","['spam', 'not relevant', 'not credible']",[]
-"I don't gamble, just eat 👍😎",3,Twin River Casino Hotel,['not relevant'],['not relevant']
-The chicken was like Frozen banquet chicken refried all over again the worst ever would not recommend that so-called new chicken dinner,1,Cracker Barrel Old Country Store,['not credible'],[]
-"What a fantastic place. Bought our 2014 Cruze from here with 38,000 miles on it, And just a year and a half later we are at 93,000. No problems at all. You can trust them with your money. Quality vehicles!",5,K & S Auto & Repair,['not relevant'],[]
-Terrible service. Made a very simple order and was waiting over an hour. We had to leave before it was close to ready. Avoid this place at all costs.,1,O'Dwyer's Public House,['not credible'],[]
-Fabio was very helpful.  He knew his printer stock very well. Sale price was great too.,5,Staples,['spam'],[]
-Best pizza in Franklin County!,5,Papa Noel's Pizzeria,['not credible'],[]
-Ate there last Thursday. My husband had Onion soup and Chicken salad sandwich. About an hour later he was sicker then a dog. Food poisoning.,1,Soup n' Greens,['not credible'],[]
-You know what you are getting. Good Comfort food.,5,Zachary's Pizza,['not relevant'],[]
+Me gusta",5,PetSmart,low,['not relevant'],"['not relevant', 'not credible']"
+"Small but new, hope you like To smoke friggin cigarette smoking everywhere.  Needed a shower as soon as I got home!!",1,Tiverton Casino Hotel,low,['not credible'],[]
+Got what we needed for curtains and hardware. Great prices. No staff voluntarily came to offer guidance or advice. I really would not expect it there though.,3,"Curtain & Bath Outlet, Warwick",low,"['spam', 'not relevant', 'not credible']",[]
+"I don't gamble, just eat 👍😎",3,Twin River Casino Hotel,low,['not relevant'],['not relevant']
+The chicken was like Frozen banquet chicken refried all over again the worst ever would not recommend that so-called new chicken dinner,1,Cracker Barrel Old Country Store,low,['not credible'],[]
+"What a fantastic place. Bought our 2014 Cruze from here with 38,000 miles on it, And just a year and a half later we are at 93,000. No problems at all. You can trust them with your money. Quality vehicles!",5,K & S Auto & Repair,high,['not relevant'],[]
+Terrible service. Made a very simple order and was waiting over an hour. We had to leave before it was close to ready. Avoid this place at all costs.,1,O'Dwyer's Public House,low,['not credible'],[]
+Fabio was very helpful.  He knew his printer stock very well. Sale price was great too.,5,Staples,low,['spam'],[]
+Best pizza in Franklin County!,5,Papa Noel's Pizzeria,low,['not credible'],[]
+Ate there last Thursday. My husband had Onion soup and Chicken salad sandwich. About an hour later he was sicker then a dog. Food poisoning.,1,Soup n' Greens,low,['not credible'],[]
+You know what you are getting. Good Comfort food.,5,Zachary's Pizza,low,['not relevant'],[]
