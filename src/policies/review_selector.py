@@ -16,6 +16,11 @@ def get_violations(prediction: dict) -> list[str]:
         violations.append("not credible")
     return violations
 
+def get_quality_score(prediction: dict) -> str:
+    """
+    Return the review quality score from model predictions.
+    """
+    return prediction["review_quaity"]
 
 def get_ground_truth_violations(truth: dict) -> list[str]:
     """
@@ -67,6 +72,7 @@ def select_violated_reviews(evaluated_reviews_path: str, metadata_path: str) -> 
                     "text": review.input["text"],
                     "rating": review.input["rating"],
                     "business_name": review.input["business"].name,
+                    "review_quality": get_quality_score(review_json["prediction"]),
                     "violations": violations,
                     "ground_truth_violations": truth,
                 }
