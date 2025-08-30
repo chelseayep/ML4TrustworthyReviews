@@ -1,0 +1,36 @@
+
+
+  === CREDIBLE ===
+F1 score (credible): 0.9725274725274725
+              precision    recall  f1-score   support
+
+           0       0.59      0.93      0.72        14
+           1       0.99      0.95      0.97       186
+
+    accuracy                           0.95       200
+   macro avg       0.79      0.94      0.85       200
+weighted avg       0.97      0.95      0.96       200
+
+
+=== RELEVANCE ===
+F1 score (relevance): 0.9786096256684492
+              precision    recall  f1-score   support
+
+           0       0.53      1.00      0.69         9
+           1       1.00      0.96      0.98       191
+
+    accuracy                           0.96       200
+   macro avg       0.76      0.98      0.84       200
+weighted avg       0.98      0.96      0.97       200
+
+
+=== SPAM ===
+F1 score (spam): 0.8
+              precision    recall  f1-score   support
+
+           0       1.00      0.99      0.99       196
+           1       0.67      1.00      0.80         4
+
+    accuracy                           0.99       200
+   macro avg       0.83      0.99      0.90       200
+weighted avg       0.99      0.99      0.99       200

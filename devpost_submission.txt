@@ -1,0 +1,115 @@
+# ML4TrustworthyReviews - Automated Review Quality Assessment System
+
+## Problem Statement
+
+Online reviews significantly influence public perception of local businesses, directly impacting their reputation and customer acquisition. However, the current review ecosystem suffers from several critical issues that distort business ratings and mislead consumers:
+
+- **Irrelevant content** that discusses unrelated topics instead of the actual business experience
+- **Misleading or non-credible reviews** from users who haven't actually visited the location
+- **Spam and promotional content** disguised as genuine customer feedback
+- **Low-quality reviews** that provide minimal useful information to potential customers
+
+These issues create an untrustworthy review environment where genuine customer experiences are diluted by noise, making it difficult for consumers to make informed decisions and unfairly impacting business reputations.
+
+## Solution Overview
+
+ML4TrustworthyReviews addresses this challenge by implementing an automated review evaluation system that leverages machine learning and natural language processing to assess review quality, relevance, and credibility according to well-defined policies. Our solution provides:
+
+### Core Features
+
+**1. Multi-Policy Violation Detection**
+- Spam/Advertisement detection using rule-based pattern matching
+- Relevance evaluation to ensure reviews discuss the actual business
+- Credibility assessment to identify genuine user experiences
+- Quality scoring for informative content prioritization
+
+**2. Intelligent Evaluation Pipeline**
+- Fast rule-based spam detection as first-pass filter
+- LLM-powered nuanced evaluation for complex policy violations
+- Independent policy assessment to handle contradictory cases
+- Comprehensive violation reporting with actionable insights
+
+**3. Interactive Testing Interface**
+- Real-time review evaluation with immediate feedback
+- Support for different business types (restaurants, parks, venues)
+- Clear violation reporting and quality metrics
+- User-friendly interface for testing and validation
+
+### How It Addresses the Challenge
+
+Our system tackles the specific problem of **assessing the quality and relevancy of location-based reviews** by:
+
+1. **Automated Quality Control**: Eliminates the need for manual review moderation at scale
+2. **Multi-dimensional Assessment**: Evaluates reviews across multiple policy dimensions
+3. **Context-Aware Evaluation**: Considers business type and context for accurate relevance assessment
+4. **Balanced Detection**: Prioritizes high recall to catch violations while maintaining operational efficiency
+
+## Technical Implementation
+### Development Environment
+- **IDE**: VSCode
+- **Development Platform**: Local
+- **Version Control**: GitHub
+
+
+### Libraries and Frameworks
+Core ML/NLP Stack:
+- Hugging Face Transformers: Local model deployment and inference pipeline (Qwen2.5-VL-3B-Instruct, Mistral-7B-Instruct, Gemma-3-1b-it)
+- Hugging Face Hub: Remote model inference for testing and experimentation
+- PyTorch: Backend framework for model operations and device management (MPS/CPU)
+- Pydantic: Data validation and structured output schemas
+- Pandas: Data manipulation and analysis
+- scikit-learn: Model evaluation
+
+
+**Application Framework:**
+- **Streamlit**: Interactive web application and dashboard
+
+
+### Datasets and Assets
+
+**Primary Dataset:**
+- **Google Local Reviews Dataset** (McAuley Lab, UCSD): Source of review data for training and evaluation
+- **Manually Annotated Test Dataset**: 200 reviews with ground truth labels for policy violations
+
+**Data Processing:**
+- Custom data standardization pipeline for consistent review format
+- Business and User dataclass objects for structured data representation
+- Violated reviews extraction and analysis tools
+
+## Model Performance
+Our evaluation on the test dataset of 200 manually annotated reviews demonstrates:
+
+### Policy Violation Detection Results:
+- **Spam Detection**: 67% precision, 100% recall (F1: 0.80)
+- **Relevance Evaluation**: 53% precision, 100% recall (F1: 0.69)
+- **Credibility Assessment**: 59% precision, 93% recall (F1: 0.72)
+
+### Overall System Performance:
+- **High recall across all policies**: Ensures comprehensive violation detection
+- **Strong overall accuracy**: 95-99% across different policy types
+- **Effective first-pass filtering**: Suitable for workflows with human review
+
+The model prioritizes catching violations over minimizing false positives, making it ideal for content moderation workflows where missing a violation is costlier than over-flagging.
+
+## Architecture and Design
+
+### Policy Evaluation Pipeline
+1. **Input Standardization**: Reviews converted to unified Review objects with Business context
+2. **Quick Spam Filter**: Rule-based detection for obvious promotional content
+3. **LLM Evaluation**: Context-aware assessment of relevance, credibility, and quality
+4. **Independent Assessment**: Each policy evaluated separately to handle nuanced cases
+5. **Results Aggregation**: Comprehensive violation reporting and quality metrics
+
+## Impact and Applications
+
+### Business Value
+- **Platform Trust**: Improved review quality enhances user confidence in the platform
+- **Fair Representation**: Reduces distortion of business reputations from policy violations
+- **Operational Efficiency**: Automated first-pass filtering reduces manual moderation workload
+- **User Experience**: Higher quality reviews provide more valuable information to consumers
+
+### Potential Extensions
+- **Real-time Integration**: Deploy as API for live review moderation
+- **Business Analytics**: Trend analysis and quality metrics for individual businesses
+- **User Behavior Monitoring**: Detection of suspicious reviewer patterns
+- **Multi-language Support**: Extend evaluation to non-English reviews
