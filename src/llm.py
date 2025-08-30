@@ -102,8 +102,6 @@ class Model:
             return output_text
     
 
-
-
     @staticmethod
     def extract_json(text: str) -> dict:
         """

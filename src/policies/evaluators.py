@@ -3,7 +3,6 @@ import re
 from pydantic import BaseModel
 from typing import Literal, List
 import sys
-sys.path.append('/Users/chelsea/Documents/ML4TrustworthyReviews/src')
 from objects import Review, Business, OutputData, InputData
 from llm import Model
 
@@ -94,7 +93,7 @@ You are an expert in evaluating user reviews for businesses. Your task is to ass
   * For any business: customer experience, what it was like to visit/use the business
 - The review should relate to what a visitor would experience at this specific business or location
 - Reviews about the atmosphere, surroundings, feelings about a place, or visitor experience are RELEVANT
-- Only mark as 'irrelevant' if the review discusses completely unrelated topics or could apply to any random business
+- NOTE: When it is not immediately apparent, return 'relevant'
 
 Return in a single string: 'relevant' or 'irrelevant'
 
@@ -184,7 +183,6 @@ class PolicyEvaluator:
         # Run non-LLM policy first (fastest)
         is_ad = self.ad_policy.evaluate(review)
         
-        # If it's an ad, you might want to skip other evaluations
         if is_ad:
             review.evaluation = OutputData(
                 review_quality='low',
@@ -212,14 +210,6 @@ class PolicyEvaluator:
 
         return review
 
-    # def evaluate_batch(self, reviews: List[Review]) -> List[Review]:
-    #     """
-    #     Evaluate multiple reviews, potentially with batching optimizations
-    #     """
-    #     results = []
-    #     for review in reviews:
-    #         results.append(self.evaluate(review))
-    #     return results
 
     def evaluate_batch(self, reviews: List[Review]) -> List[Review]:
         """
@@ -234,7 +224,7 @@ class PolicyEvaluator:
             
             if is_ad:
                 review.evaluation = OutputData(
-                    review_quaity='low',  # Note: keeping your original typo for consistency
+                    review_quaity='low', 
                     spam=is_ad, 
                     relevance=False, 
                     credible=False
@@ -248,7 +238,7 @@ class PolicyEvaluator:
             quality = self.quality_policy.evaluate(review)
 
             review.evaluation = OutputData(
-                review_quaity=quality,  # Note: keeping your original typo
+                review_quaity=quality, 
                 spam=is_ad, 
                 relevance=(is_relevant=='relevant'), 
                 credible=(is_credible=='credible')
@@ -257,20 +247,3 @@ class PolicyEvaluator:
             processed_reviews.append(review)
         
         return processed_reviews
-
-test_review= Review(id=1,input=InputData(
-        text= "This place was so peaceful and quiet....not many people out here so you feel the awesome alone in paradise feeling....the area is also full of great energy that has very mystical history surrounding the area.   It's near plain meeting house which has alot of folklore that surrounds the area",
-       rating= 5,
-        business= Business(
-        gmap_id= "0x89e5ce1e71927ddb:0xc25de9369c417b1c",
-        name= "Stepstone Falls",
-        address= "Stepstone Falls, West Greenwich, RI 02817",
-        description= "Set in a wooded area, this picturesque waterfall is a series of gentle cascades over broad ledges.",
-        avg_rating= 4.6
-        )))
-
-# evaluation_result= PolicyEvaluator()
-# policy=RelevancePolicy(evaluation_result.shared_model)
-# relevance=policy.evaluate(test_review)
-# review=evaluation_result.evaluate(test_review)
-# print(review.evaluation)
