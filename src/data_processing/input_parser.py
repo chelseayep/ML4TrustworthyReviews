@@ -39,7 +39,7 @@ def parse_csv(path: str) -> list[InputData]:
 
 
 
-def parse_json(path: str, rows: int, business_info_path: Optional[str]) -> list[InputData]:
+def parse_json_into_reviews(path: str, rows: int, business_info_path: Optional[str]) -> list[InputData]:
     # First pass: count total lines
     total_lines = 0
     with open(path, 'r', encoding='utf-8') as f:
@@ -150,6 +150,3 @@ def save_to_json(data: List[InputData], path: str):
 
 
 
-data= parse_json("/Users/chelsea/Documents/ML4TrustworthyReviews/data/raw/vermont/review-Vermont.json",  rows=200, 
-                 business_info_path="/Users/chelsea/Documents/ML4TrustworthyReviews/data/raw/vermont/meta-Vermont.json")
-save_to_json(data, "/Users/chelsea/Documents/ML4TrustworthyReviews/data/processed/lalaal.json")
