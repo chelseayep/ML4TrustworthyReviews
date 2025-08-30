@@ -7,7 +7,7 @@ sys.path.append('/Users/chelsea/Documents/ML4TrustworthyReviews/src')
 from objects import Review, Business, OutputData, InputData
 from llm import Model
 
-class AdvertisementPolicy:
+class SpamPolicy:
     def evaluate(self, review: Review) -> bool:
         """
         Evaluate if the review is an advertisement based on presence of URLs and promotional keywords.
@@ -19,9 +19,9 @@ class AdvertisementPolicy:
         url_regex = r'(https?://\S+|www\.\S+)'
         url_present = re.search(url_regex, review_text) is not None
         
-        is_ad = url_present or keyword_count > 0
+        is_spam = url_present or keyword_count > 2
        
-        return is_ad
+        return is_spam
     
 
 
@@ -176,7 +176,7 @@ class PolicyEvaluator:
         
         # Pass shared model to policies that need LLM
         self.quality_policy = QualityPolicy(self.shared_model)
-        self.ad_policy = AdvertisementPolicy()  # No LLM needed
+        self.ad_policy = SpamPolicy()  # No LLM needed
         self.relevance_policy = RelevancePolicy(self.shared_model)
         self.credibility_policy = CredibilityPolicy(self.shared_model)
 
@@ -253,7 +253,7 @@ class PolicyEvaluator:
                 relevance=(is_relevant=='relevant'), 
                 credible=(is_credible=='credible')
             )
-            
+            print(review)
             processed_reviews.append(review)
         
         return processed_reviews
