@@ -74,12 +74,12 @@ with col1:
     """)
 
 with col2:
-    st.markdown("** Limitations**")
+    st.markdown("**Limitations**")
     st.write("""
-    • **Moderate precision (53-67%)**: Some false positives occur
-    • **Independent evaluation**: Each policy is assessed separately, leading to contradictory results (e.g., flagged as "not relevant" but "high quality")
-    • **Non-credible detection**: Most challenging with 59% precision
-    • **Trade-off consideration**: Balance between catching violations vs. false alarms
+    - **Moderate precision (53-67%)**: Some false positives occur
+    - **Independent evaluation**: Each policy is assessed separately, leading to contradictory results (e.g., flagged as "not relevant" but "high quality")
+    - **Non-credible detection**: Most challenging with 59% precision
+    - **Trade-off consideration**: Balance between catching violations vs. false alarms
     """)
 
 st.subheader("Recommended Usage")
