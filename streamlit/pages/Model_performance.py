@@ -93,7 +93,7 @@ st.write(
     "Reviews identified as policy violations, with manually verified ground truth labels for validation."
 )
 
-violated_policies = "../data/output/violated_reviews.csv"
+violated_policies = "data/output/violated_reviews.csv"
 try:
     df_violations_data = pd.read_csv(violated_policies)
     st.dataframe(df_violations_data, use_container_width=True)
